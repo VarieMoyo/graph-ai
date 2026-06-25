@@ -1,0 +1,1193 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Masterclass for Clinicians - Portfolio & Syllabus Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Editorial Serif) & Inter (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        clinical: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#be123c', /* Clinical Crimson Red */
+                            700: '#9f1239', /* Deep Crimson */
+                            800: '#881337',
+                            900: '#4c0519',
+                        },
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            200: '#bcccdc',
+                            300: '#9fb3c8',
+                            450: '#627d98',
+                            600: '#334e68',
+                            700: '#243b53',
+                            800: '#102a43', /* Dark Slate Navy Base */
+                            900: '#0b1b2b', /* Deepest Academic Navy */
+                            950: '#06101a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .bg-grid-pattern {
+            background-size: 24px 24px;
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+        }
+        .bg-dark-grid-pattern {
+            background-size: 24px 24px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .shadow-clinical-soft {
+            box-shadow: 0 4px 30px -4px rgba(11, 27, 43, 0.03), 0 2px 10px -2px rgba(190, 18, 60, 0.02);
+        }
+        .shadow-clinical-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .shadow-clinical-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -4px rgba(11, 27, 43, 0.08), 0 4px 12px -2px rgba(190, 18, 60, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Sticky Institutional Navigation Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Block -->
+                <div class="flex items-center">
+                    <img src="image_24ce60.png" alt="Newlands Clinic Logo" class="h-14 sm:h-16 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/be123c?text=Newlands+Clinic'">
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#about-us" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">About Us</a>
+                    <a href="#about-course" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Competencies</a>
+                    <a href="#curriculum" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Syllabus</a>
+                    <a href="#submissions" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Student Deliverables</a>
+                    <a href="#faculty" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Faculty</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="flex items-center space-x-4">
+                    <a href="#register" class="bg-clinical-600 hover:bg-clinical-700 text-white px-5 py-2.5 rounded text-xs uppercase tracking-wider font-bold shadow-sm transition duration-300 transform hover:-translate-y-0.5">
+                        Express Interest
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Institutional Intro Section (Clean light-mode grid with red and navy accents) -->
+    <section class="relative min-h-[85vh] flex items-center py-16 overflow-hidden bg-slate-50 border-b border-slate-200 bg-grid-pattern">
+        
+        <!-- Elegant Subtle Background Gradients -->
+        <div class="absolute top-1/4 right-0 w-[450px] h-[450px] bg-rose-50/60 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-12 left-0 w-96 h-96 bg-navy-50/55 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Core Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-clinical-50 border border-clinical-200 px-3.5 py-1.5 rounded text-[11px] font-extrabold text-clinical-700 uppercase tracking-wider">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        A 12-Week Online Training Programme
+                    </div>
+                    
+                    <h1 class="font-serif font-extrabold text-4xl sm:text-5xl lg:text-6xl text-navy-900 leading-[1.1] tracking-tight">
+                        Research Masterclass <br>
+                        <span class="text-clinical-600 font-normal italic">for Clinicians</span>
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Foundations in Epidemiology, Statistics, and Scientific Writing. Empowering clinical observers to confidently transition into lead researchers with sound analytical pipelines.
+                    </p>
+
+                    <!-- Interactive Quick-Action Triggers -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#curriculum" class="bg-navy-900 hover:bg-navy-850 text-white px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider shadow-md text-center transition duration-300 hover:scale-[1.02]">
+                            Explore Curriculum
+                        </a>
+                        <a href="#submissions" class="bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider text-center transition duration-300 hover:scale-[1.02]">
+                            View Portfolio Tasks
+                        </a>
+                    </div>
+
+                    <!-- Key Course Parameters -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-serif font-bold text-navy-900">12</span>
+                            <span class="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Weeks Online</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-serif font-bold text-navy-900">84</span>
+                            <span class="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Total Hours</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-serif font-bold text-navy-900">3</span>
+                            <span class="block text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Core Modules</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Infographic Sidebar Panel (Medical Red & Slate Navy Accent Frame) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative bg-white border border-slate-200 rounded p-6 sm:p-8 shadow-clinical-soft">
+                        
+                        <!-- Top Red Frame Accent -->
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-clinical-600 rounded-t"></div>
+                        
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider">Course Competency Index</span>
+                            <span class="px-2.5 py-1 bg-green-50 text-green-700 text-[10px] font-extrabold rounded border border-green-200 uppercase">Interactive</span>
+                        </div>
+
+                        <!-- Skill Level Bars -->
+                        <div class="space-y-5">
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-slate-700">1. Research Design & Epidemiology</span>
+                                    <span class="text-clinical-600">Mastery</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-clinical-600 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-slate-700">2. Applied Statistical Literacy</span>
+                                    <span class="text-navy-800">Applied</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-navy-800 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <div class="flex justify-between text-xs font-semibold">
+                                    <span class="text-slate-700">3. Practical Data Proficiency</span>
+                                    <span class="text-clinical-600">Core Lab</span>
+                                </div>
+                                <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-clinical-600 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Impact Focus Block -->
+                        <div class="mt-8 p-4 bg-slate-50 border border-slate-200 rounded relative overflow-hidden">
+                            <span class="text-[10px] uppercase font-extrabold text-navy-800 tracking-wider">Statement of Final Impact</span>
+                            <p class="text-xs text-slate-600 italic mt-2 leading-relaxed">
+                                "Graduates of the Masterclass will possess the end-to-end skills required to conceptualise a clinical study, descriptively analyse data with precision, and confidently contribute evidence-based findings to medical literature."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Newlands Clinic Section (Clean Editorial Layout) -->
+    <section id="about-us" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Professional Institutional Narrative -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs uppercase font-extrabold text-clinical-600 tracking-widest block">About Us</span>
+                    <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-navy-900 leading-tight">
+                        Empowering Medical Officers to Write Scientific History
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        The <strong>Newlands Clinic</strong>, based in Zimbabwe, is an internationally respected model of excellence in outpatient HIV clinical care. While patient care remains at our core, active, localized clinical research is critical to shaping future healthcare models.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed font-light text-base">
+                        This Research Masterclass was born out of a strategic vision: to bridge the gap between day-to-day patient observations and peer-reviewed international scientific publication. By providing clinician-focused training, we translate real-world clinical experience into solid epidemiological evidence.
+                    </p>
+                    
+                    <!-- Quick Institutional Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded shadow-sm flex items-start gap-4">
+                            <span class="text-clinical-600 mt-1"><i class="fa-solid fa-flask-vial text-xl"></i></span>
+                            <div>
+                                <h4 class="font-serif font-bold text-navy-900 text-sm">Academic Foundations</h4>
+                                <p class="text-xs text-slate-500 mt-1">Focusing on sound core research theory, clinical study designs, and population epidemiology.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-slate-50 border border-slate-200 rounded shadow-sm flex items-start gap-4">
+                            <span class="text-navy-800 mt-1"><i class="fa-solid fa-table text-xl"></i></span>
+                            <div>
+                                <h4 class="font-serif font-bold text-navy-900 text-sm">Systematic Data Handling</h4>
+                                <p class="text-xs text-slate-500 mt-1">Learning structured methodologies to clean, filter, and organize clinical datasets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Clinical/Academic Visual Frame -->
+                <div class="lg:col-span-5">
+                    <div class="relative max-w-sm mx-auto">
+                        <!-- Red Frame Borders -->
+                        <div class="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-clinical-600 rounded-tl"></div>
+                        <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-navy-900 rounded-br"></div>
+                        
+                        <div class="bg-slate-50 p-8 rounded border border-slate-200 shadow-clinical-soft relative">
+                            <div class="flex items-center space-x-2 text-clinical-600 mb-6">
+                                <i class="fa-solid fa-microscope text-2xl"></i>
+                                <span class="font-serif font-bold text-lg text-navy-900">Research Focus Areas</span>
+                            </div>
+                            
+                            <ul class="space-y-4 text-slate-600 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-clinical-600 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                    <span><strong>Epidemiology:</strong> Define precise clinical cohorts, cases, and measures of occurrence.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-navy-800 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                    <span><strong>Inference Statistics:</strong> Master T-tests, Chi-squares, and confidence parameters.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-clinical-600 mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
+                                    <span><strong>Data Wrangling:</strong> Parse, clean, and map clinical trial datasets into clean scientific templates.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Core Pillars Section (Sophisticated Navy Blue Background to break monotony) -->
+    <section id="about-course" class="py-20 bg-navy-900 text-white relative bg-dark-grid-pattern border-t border-b border-navy-950">
+        
+        <div class="absolute top-0 right-0 w-96 h-96 bg-clinical-900/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-navy-850/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase font-extrabold text-clinical-500 tracking-widest block mb-2">Curriculum Roadmap</span>
+                <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-white">Three Pillars of Medical Science</h2>
+                <p class="text-slate-300 mt-3 font-light text-sm sm:text-base">
+                    Our syllabus is structured chronologically, advancing candidates from epidemiological framework theories up to independent clinical descriptive reports.
+                </p>
+            </div>
+
+            <div id="curriculum" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- MODULE 1 -->
+                <div class="bg-navy-800/80 border border-navy-700 rounded p-8 shadow-2xl transition relative group flex flex-col justify-between hover:border-clinical-500/50">
+                    <div>
+                        <div class="absolute top-4 right-4 font-serif font-extrabold text-3xl text-navy-700/50 group-hover:text-clinical-500/20 transition">01</div>
+                        <div class="h-12 w-12 rounded bg-clinical-600/25 text-clinical-400 flex items-center justify-center font-bold text-sm mb-6 border border-clinical-500/40">M1</div>
+                        
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Fundamentals of Epidemiology</h3>
+                        <p class="text-clinical-400 text-[10px] font-extrabold uppercase tracking-wider mb-4">Weeks 1 - 4 • Principles</p>
+                        
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Master the foundational principles of population health research. Learn to formulate research questions, design appropriate studies, and calculate key measures of effect.
+                        </p>
+                        
+                        <div class="border-t border-navy-700 pt-6">
+                            <span class="text-xs font-bold text-clinical-400 uppercase tracking-wider block mb-3">Key Syllabus Topics:</span>
+                            <ul class="space-y-2 text-slate-300 text-xs">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Clinical Medicine Foundations & Scope</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Defining Study Cases & Target Populations</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Measures of Disease Occurrence (Incidence/Mortality)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Leveraging Routine Health Data securely</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Measures of Effect (Ratios & Attributable Fractions)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Observational & Experimental Study Designs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 2 -->
+                <div class="bg-navy-800/80 border border-navy-700 rounded p-8 shadow-2xl transition relative group flex flex-col justify-between hover:border-clinical-500/50">
+                    <div>
+                        <div class="absolute top-4 right-4 font-serif font-extrabold text-3xl text-navy-700/50 group-hover:text-clinical-500/20 transition">02</div>
+                        <div class="h-12 w-12 rounded bg-clinical-600/25 text-clinical-400 flex items-center justify-center font-bold text-sm mb-6 border border-clinical-500/40">M2</div>
+                        
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Statistics for Epidemiology</h3>
+                        <p class="text-clinical-400 text-[10px] font-extrabold uppercase tracking-wider mb-4">Weeks 5 - 8 • Assessment</p>
+                        
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Develop statistical literacy to analyze research data and interpret published findings. Learn to choose appropriate tests, understand p-values, and avoid common errors.
+                        </p>
+                        
+                        <div class="border-t border-navy-700 pt-6">
+                            <span class="text-xs font-bold text-clinical-400 uppercase tracking-wider block mb-3">Key Syllabus Topics:</span>
+                            <ul class="space-y-2 text-slate-300 text-xs">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Statistics Intro: Data Types & Descriptives</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Creating Effective Scientific Tables & Figures</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Probability Distributions (Normal & Binomial)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Statistical Inference & Hypothesis Principles</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Comparing Groups: T-Tests & Chi-Square Tests</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Correlation, Risk Ratios, Odds Ratios & Confounding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 3 -->
+                <div class="bg-navy-800/80 border border-navy-700 rounded p-8 shadow-2xl transition relative group flex flex-col justify-between hover:border-clinical-500/50">
+                    <div>
+                        <div class="absolute top-4 right-4 font-serif font-extrabold text-3xl text-navy-700/50 group-hover:text-clinical-500/20 transition">03</div>
+                        <div class="h-12 w-12 rounded bg-clinical-600/25 text-clinical-400 flex items-center justify-center font-bold text-sm mb-6 border border-clinical-500/40">M3</div>
+                        
+                        <h3 class="font-serif font-bold text-xl text-white mb-2">Introduction to Data Analysis</h3>
+                        <p class="text-clinical-400 text-[10px] font-extrabold uppercase tracking-wider mb-4">Weeks 9 - 12 • Data Mastery</p>
+                        
+                        <p class="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                            Develop hands-on proficiency in descriptive statistics and clinical dataset structuring. Clean, parse, and structure research datasets to produce publication tables.
+                        </p>
+                        
+                        <div class="border-t border-navy-700 pt-6">
+                            <span class="text-xs font-bold text-clinical-400 uppercase tracking-wider block mb-3">Key Syllabus Topics:</span>
+                            <ul class="space-y-2 text-slate-300 text-xs">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Data Import & Preparation (Wrangling)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Summary Statistics (Central Tendency & Dispersion)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Medical Visualisation (Charts & Graphical Summaries)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-chevron-right text-[10px] text-clinical-500"></i> Cohort Cross-Tabulations & baseline Table 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Program Dedicated Study Hours Allocation -->
+            <div class="mt-20 border border-navy-700 bg-navy-950/50 rounded p-8 lg:p-12 shadow-sm">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <span class="text-xs font-extrabold text-clinical-400 uppercase tracking-wider">Effort Blueprint</span>
+                        <h3 class="font-serif font-extrabold text-2xl lg:text-3xl text-white">Dedicated Study Allocation</h3>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed">
+                            Structured to easily integrate into ongoing medical residency and practice schedules. Over 12 weeks, the typical participant dedicates a total of 84 hours.
+                        </p>
+                        <div class="pt-2">
+                            <span class="text-slate-400 text-[10px] block font-extrabold tracking-widest uppercase">TOTAL WORKING HOURS:</span>
+                            <span class="font-serif font-black text-4xl text-clinical-500">84 Hours</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-5 bg-navy-900 border border-navy-800 rounded flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Live Workshop Sessions</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Interactive virtual labs (1h/week)</p>
+                            </div>
+                            <span class="font-serif font-bold text-2xl text-clinical-400">12h</span>
+                        </div>
+                        
+                        <div class="p-5 bg-navy-900 border border-navy-800 rounded flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Post-Workshop Tasks</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Weekly Quizzes & Exercises (1h/week)</p>
+                            </div>
+                            <span class="font-serif font-bold text-2xl text-clinical-400">12h</span>
+                        </div>
+
+                        <div class="p-5 bg-navy-900 border border-navy-800 rounded flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Prework Content Study</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Lectures & readings (2h/week)</p>
+                            </div>
+                            <span class="font-serif font-bold text-2xl text-clinical-400">24h</span>
+                        </div>
+
+                        <div class="p-5 bg-navy-900 border border-clinical-600/30 rounded flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-clinical-400">Final Presentation Project</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Independent dataset research</p>
+                            </div>
+                            <span class="font-serif font-bold text-2xl text-clinical-400">36h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Course Blueprint (Grading, Outcomes, Target Audience) -->
+    <section class="py-20 bg-slate-50 relative border-b border-slate-200 bg-grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Assessment Scheme -->
+                <div class="space-y-6">
+                    <span class="text-xs font-bold text-navy-800 uppercase tracking-widest block">Assessment Rubric</span>
+                    <h3 class="font-serif font-extrabold text-2xl text-slate-900">Grading & Evaluation</h3>
+                    <p class="text-slate-600 text-sm font-light">
+                        Robust completion credentials require high performance standards across both analytical execution and active weekly participation.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white border border-slate-200 rounded shadow-sm">
+                            <div class="flex justify-between text-xs mb-1.5 font-bold">
+                                <span class="text-slate-700">Final Presentation Project</span>
+                                <span class="text-clinical-600">40%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-clinical-600 h-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white border border-slate-200 rounded shadow-sm">
+                            <div class="flex justify-between text-xs mb-1.5 font-bold">
+                                <span class="text-slate-700">Weekly Quizzes & Exercises</span>
+                                <span class="text-navy-800">30%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-navy-800 h-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white border border-slate-200 rounded shadow-sm">
+                            <div class="flex justify-between text-xs mb-1.5 font-bold">
+                                <span class="text-slate-700">Participation & Engagement</span>
+                                <span class="text-navy-800">30%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-navy-800 h-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-clinical-50 border border-clinical-100 p-4 rounded text-xs text-clinical-800">
+                        <i class="fa-solid fa-circle-exclamation text-lg text-clinical-600"></i>
+                        <span>A minimal cumulative score of <strong>70% is required</strong> to earn official Masterclass Graduation Credentials.</span>
+                    </div>
+                </div>
+
+                <!-- Learning Outcomes -->
+                <div class="space-y-6">
+                    <span class="text-xs font-bold text-clinical-600 uppercase tracking-widest block">Core Competencies</span>
+                    <h3 class="font-serif font-extrabold text-2xl text-slate-900 font-bold">Learning Outcomes</h3>
+                    <p class="text-slate-600 text-sm font-light">
+                        Upon successful masterclass completion, clinicians will confidently execute clinical research pipelines independently.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <span class="text-clinical-600 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            <span class="text-xs text-slate-700 font-medium">Formulate clear research questions (PICO)</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <span class="text-clinical-600 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            <span class="text-xs text-slate-700 font-medium">Select appropriate epidemiologic study designs</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <span class="text-clinical-600 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            <span class="text-xs text-slate-700 font-medium">Calculate exact disease measures & effects</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <span class="text-navy-800 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            <span class="text-xs text-slate-700 font-medium">Prepare, clean, and map clinical datasets systematically</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <span class="text-navy-800 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            <span class="text-xs text-slate-700 font-medium">Build baseline demographic Cohort Tables ("Table 1")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Who Should Attend -->
+                <div class="space-y-6">
+                    <span class="text-xs font-bold text-navy-800 uppercase tracking-widest block">Eligibility Scope</span>
+                    <h3 class="font-serif font-extrabold text-2xl text-slate-900 font-bold">Target Audience</h3>
+                    <p class="text-slate-600 text-sm font-light">
+                        This interactive Masterclass is strictly designed for practicing clinical and healthcare officers:
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white border-l-4 border-l-clinical-600 border border-slate-200 rounded flex gap-3 shadow-sm">
+                            <span class="text-clinical-600 text-sm mt-0.5"><i class="fa-solid fa-user-doctor"></i></span>
+                            <p class="text-xs text-slate-600"><strong class="text-slate-900 block font-serif">Academic Clinicians:</strong> Seeking to strengthen analytical stats to lead institutional research.</p>
+                        </div>
+
+                        <div class="p-4 bg-white border-l-4 border-l-navy-800 border border-slate-200 rounded flex gap-3 shadow-sm">
+                            <span class="text-navy-800 text-sm mt-0.5"><i class="fa-solid fa-file-medical"></i></span>
+                            <p class="text-xs text-slate-600"><strong class="text-slate-900 block font-serif">Medical Authors:</strong> Seeking to move past co-authorship into leading publication pathways.</p>
+                        </div>
+
+                        <div class="p-4 bg-white border-l-4 border-l-clinical-600 border border-slate-200 rounded flex gap-3 shadow-sm">
+                            <span class="text-clinical-600 text-sm mt-0.5"><i class="fa-solid fa-microscope"></i></span>
+                            <p class="text-xs text-slate-600"><strong class="text-slate-900 block font-serif">Evidence Advocates:</strong> Focused on translating clinical patient trends into published evidence models.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Submissions Portfolio Section (with Interactive Filtering tabs) -->
+    <section id="submissions" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="flex flex-col xl:flex-row xl:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs uppercase font-extrabold text-clinical-600 tracking-widest block mb-2">Student Deliverables</span>
+                    <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-navy-900">Weekly Submissions Portfolio</h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl font-light text-sm">
+                        Review individual course deliverables across our 12-week timeline. Clinicians submit verified files mapped directly to our curriculum framework.
+                    </p>
+                </div>
+                
+                <!-- Category/Module Filtering Tabs -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="filterWeeks('all')" id="tab-all" class="px-4 py-2 bg-navy-900 text-white border border-navy-900 text-xs font-bold rounded transition tracking-wider uppercase">
+                        All Weeks (1-12)
+                    </button>
+                    <button onclick="filterWeeks('epi')" id="tab-epi" class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-bold rounded transition tracking-wider uppercase">
+                        Epidemiology (W1-4)
+                    </button>
+                    <button onclick="filterWeeks('stats')" id="tab-stats" class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-bold rounded transition tracking-wider uppercase">
+                        Statistics (W5-8)
+                    </button>
+                    <button onclick="filterWeeks('data')" id="tab-data" class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-bold rounded transition tracking-wider uppercase">
+                        Data Analysis (W9-12)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Submissions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="submissions-grid">
+                
+                <!-- Week 1 (Epidemiology) -->
+                <div class="week-card epi bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 1</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">PICO Proposal Framework</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Formulation of a highly-targeted clinical inquiry using formal PICO guidelines, mapping exact target cohorts.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-01</span>
+                        <button onclick="triggerSubmissionModal(1, 'PICO Proposal Framework', 'W01_PICO_Proposal.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 2 (Epidemiology) -->
+                <div class="week-card epi bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 2</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Study Design Appraisal</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Comparative evaluation parameters outlining retrospective observational research models versus randomized clinical trials.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-02</span>
+                        <button onclick="triggerSubmissionModal(2, 'Study Design Appraisal', 'W02_Study_Appraisal.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 3 (Epidemiology) -->
+                <div class="week-card epi bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 3</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Disease Occurrence Sheets</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Applied spreadsheets calculating incident density rates, cumulative proportions, and standardized study values.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-03</span>
+                        <button onclick="triggerSubmissionModal(3, 'Disease Occurrence Sheets', 'W03_Disease_Occurrence.xlsx')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-excel"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 4 (Epidemiology) -->
+                <div class="week-card epi bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 4</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Attributable Fraction Portfolio</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Practical exercise sheets tracking risk limits, differences, and mathematical attributable fractions inside sample clinical populations.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-04</span>
+                        <button onclick="triggerSubmissionModal(4, 'Attributable Fraction Portfolio', 'W04_Attributable_Fraction.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 5 (Statistics) -->
+                <div class="week-card stats bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 5</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Descriptive Table Designs</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Structural designs and formatting guidelines for scientific tables, preparing clinical variables for clear visual layout.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-05</span>
+                        <button onclick="triggerSubmissionModal(5, 'Descriptive Table Designs', 'W05_Descriptive_Tables.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-word"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 6 (Statistics) -->
+                <div class="week-card stats bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 6</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Normal & Binomial Outliers</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Statistical exercises identifying skewness, calculating standard errors, and mapping normal distribution traits.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-06</span>
+                        <button onclick="triggerSubmissionModal(6, 'Normal & Binomial Outliers', 'W06_Normal_Theory.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 7 (Statistics) -->
+                <div class="week-card stats bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 7</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Hypothesis Testing Labs</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Computational testing runs executing T-Tests and Chi-Square formulas to evaluate difference parameters.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-07</span>
+                        <button onclick="triggerSubmissionModal(7, 'Hypothesis Testing Labs', 'W07_Hypothesis_Testing.xlsx')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-excel"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 8 (Statistics) -->
+                <div class="week-card stats bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 8</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Measures of Association</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Analysis portfolios defining Odds Ratios, Risk Ratios, and structural mappings of clinical confounding variables.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-08</span>
+                        <button onclick="triggerSubmissionModal(8, 'Measures of Association', 'W08_Association_Measures.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 9 (Data Analysis) -->
+                <div class="week-card data bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 9</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Data Wrangling & Setup</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Workbook mapping data imports, filtering missing rows, and cleaning clinical variables for structured study.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-09</span>
+                        <button onclick="triggerSubmissionModal(9, 'Data Wrangling & Setup', 'W09_Wrangling_Data.xlsx')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-excel"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 10 (Data Analysis) -->
+                <div class="week-card data bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 10</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Descriptive Statistics Summary</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Data worksheet organizing descriptive summary statistics including Mean, Median, SD, and IQR ranges inside clinical datasets.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-10</span>
+                        <button onclick="triggerSubmissionModal(10, 'Descriptive Statistics Summary', 'W10_Descriptives_Summary.xlsx')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-excel"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 11 (Data Analysis) -->
+                <div class="week-card data bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 11</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Clinical Data Visualisation</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Graphical reporting templates outputting histograms, correlation plots, and boxplots conforming to academic standards.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-11</span>
+                        <button onclick="triggerSubmissionModal(11, 'Clinical Data Visualisation', 'W11_Data_Visualisation.pdf')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-pdf"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Week 12 (Data Analysis) -->
+                <div class="week-card data bg-slate-50 border border-slate-200 rounded p-6 flex flex-col justify-between shadow-clinical-hover relative group">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-[10px] font-extrabold text-clinical-700 bg-clinical-50 px-2.5 py-1 rounded border border-clinical-100 tracking-wider">WEEK 12</span>
+                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider flex items-center gap-1.5 bg-navy-50 px-2 py-0.5 rounded border border-navy-200">
+                                <span class="h-1.5 w-1.5 rounded-full bg-navy-600"></span> Template Loaded
+                            </span>
+                        </div>
+                        <h4 class="font-serif font-bold text-navy-900 text-base mb-2">Baseline Cohort Table 1 Summary</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-light mb-4">
+                            Demographic worksheet mapping clean stratified Baseline "Table 1" summaries representing primary study cohorts.
+                        </p>
+                    </div>
+                    <div class="border-t border-slate-200 pt-4 mt-4 flex justify-between items-center">
+                        <span class="text-[9px] text-slate-400 font-mono font-semibold">ID: RES-12</span>
+                        <button onclick="triggerSubmissionModal(12, 'Baseline Cohort Table 1 Summary', 'W12_Baseline_Table1.docx')" class="text-xs font-bold text-clinical-600 hover:text-clinical-700 flex items-center gap-1 transition uppercase tracking-wider">
+                            <i class="fa-solid fa-file-word"></i> Access Placeholder
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors & Mentors Section (Deep Navy Blue themed section split into Leadership & Instruction columns) -->
+    <section id="faculty" class="py-20 bg-navy-900 text-white relative bg-dark-grid-pattern border-t border-b border-navy-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-white">Instructors & Mentors</h2>
+                <p class="text-slate-300 mt-3 font-light text-sm sm:text-base">
+                    Direct guidance and academic supervision by seasoned medical specialists, epidemiologists, and statisticians.
+                </p>
+            </div>
+
+            <!-- Split Grid Setup -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- COLUMN A: Programme Leadership & Administration -->
+                <div class="lg:col-span-6 space-y-6">
+
+                    <!-- Course Director: Ardele Mandiriri-Ndanga -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            AM
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Ardele Mandiriri-Ndanga</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Director</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">MSc Epidemiology, PhD Candidate</span>
+                        </div>
+                    </div>
+
+                    <!-- Coordinator: Varaidzo Moyo -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            VM
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Varaidzo Moyo</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Coordinator</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">MSc Public Health</span>
+                        </div>
+                    </div>
+
+                    <!-- Coordinator Assistant: Sydney Malunga -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            SM
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Buntubethu Sydney Malunga</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Assistant</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">RM Course Coordinator Assistant</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- COLUMN B: Instructional Faculty -->
+                <div class="lg:col-span-6 space-y-6">
+
+                    <!-- Instructor 1: Dr. Chimbetete -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            CC
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Dr. Cleophas Chimbetete</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Instructor</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">MBChB, MPH, PhD</span>
+                        </div>
+                    </div>
+
+                    <!-- Instructor 2: Dr. Shamu -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            TS
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Dr. Tinei Shamu</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Instructor</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">PhD Epidemiologist</span>
+                        </div>
+                    </div>
+
+                    <!-- Instructor 3: Tinashe Mudzviti -->
+                    <div class="bg-navy-850 border border-navy-700 rounded p-6 flex flex-col sm:flex-row gap-4 items-center shadow-xl hover:border-navy-400/50 transition">
+                        <div class="h-16 w-16 rounded bg-navy-700 text-white flex items-center justify-center font-serif font-bold text-xl shrink-0">
+                            TM
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h4 class="font-serif font-bold text-white text-lg">Tinashe Mudzviti</h4>
+                                <span class="text-[9px] bg-navy-800 text-slate-300 border border-navy-700 font-extrabold px-2 py-0.5 rounded">Instructor</span>
+                            </div>
+                            <span class="text-xs text-slate-300 block font-light">PhD Candidate</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Safe Registration Interest Section (Light Mode with Navy Blue/Red borders) -->
+    <section id="register" class="py-20 bg-slate-50 relative bg-grid-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white border border-slate-200 rounded p-8 sm:p-12 shadow-clinical-soft relative">
+                
+                <!-- Corner Accents -->
+                <div class="absolute top-0 left-0 w-2 h-2 bg-clinical-600 rounded-tl"></div>
+                <div class="absolute bottom-0 right-0 w-2 h-2 bg-navy-900 rounded-br"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs uppercase font-extrabold text-clinical-600 tracking-widest block mb-2">Secure Institutional Registration Inquiry</span>
+                    <h2 class="font-serif font-extrabold text-3xl text-navy-900">Express Your Interest</h2>
+                    <p class="text-slate-600 mt-2 font-light text-sm">
+                        Applications for our upcoming Clinical Research Masterclass cohort open soon. Complete this audited inquiry form to receive admission schedules and notification packages.
+                    </p>
+                </div>
+
+                <!-- Feedback Container -->
+                <div id="form-feedback" class="hidden mb-6 p-4 rounded text-sm border"></div>
+
+                <form id="interest-form" class="space-y-6" onsubmit="handleFormSubmission(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-navy-800 uppercase tracking-wider">Full Name</label>
+                            <input required type="text" id="user-name" placeholder="Dr. Sarah Carter" class="w-full bg-white border border-slate-300 focus:border-clinical-600 rounded px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-clinical-600 transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-navy-800 uppercase tracking-wider">Medical Specialization</label>
+                            <input required type="text" id="user-specialty" placeholder="e.g. Immunology / Paediatrics" class="w-full bg-white border border-slate-300 focus:border-clinical-600 rounded px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-clinical-600 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-navy-800 uppercase tracking-wider">Mobile Contact (WhatsApp Preferred)</label>
+                            <input required type="tel" id="user-phone" value="+263 242 788278" class="w-full bg-white border border-slate-300 focus:border-clinical-600 rounded px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-clinical-600 transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-navy-800 uppercase tracking-wider">Institution / Hospital</label>
+                            <input required type="text" id="user-institution" placeholder="e.g. Newlands Clinic / Parirenyatwa" class="w-full bg-white border border-slate-300 focus:border-clinical-600 rounded px-4 py-3 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-clinical-600 transition">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-navy-800 uppercase tracking-wider">Clinical Study Research Intent</label>
+                        <textarea required id="user-message" rows="4" placeholder="Briefly describe what dataset clinical trials or study topics you wish to evaluate during the program..." class="w-full bg-white border border-slate-300 focus:border-clinical-600 rounded p-4 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-clinical-600 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="pt-4 flex justify-center">
+                        <button type="submit" class="w-full sm:w-auto bg-clinical-600 hover:bg-clinical-700 text-white font-bold text-xs uppercase tracking-wider px-10 py-4 rounded shadow shadow-clinical-600/10 transition duration-300 transform hover:-translate-y-0.5">
+                            Submit Secure Registration Inquiry
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Submission Link Modal Box -->
+    <div id="submission-modal" class="hidden fixed inset-0 z-[100] bg-navy-950/75 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white border border-slate-200 rounded max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            
+            <button onclick="closeSubmissionModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="space-y-5">
+                <div class="inline-flex items-center gap-1.5 bg-clinical-50 border border-clinical-100 text-clinical-700 text-[10px] font-extrabold px-2.5 py-1 rounded tracking-wider uppercase">
+                    Academic File Registry Portal
+                </div>
+                
+                <h3 id="modal-title" class="font-serif font-extrabold text-2xl text-navy-900">Submission Deliverable</h3>
+                
+                <div class="bg-slate-50 p-5 rounded border border-slate-200 space-y-3">
+                    <p class="text-xs text-slate-600 leading-relaxed font-light">
+                        This modal simulates target submission storage. Click action to copy secure link paths.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-slate-700 bg-white p-3 rounded border border-slate-200 font-mono overflow-x-auto">
+                        <span id="modal-icon-container" class="text-clinical-600"><i class="fa-solid fa-file-signature"></i></span>
+                        <span id="modal-filename">W01_PICO_Proposal.pdf</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                    <button onclick="mockCopyLink()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-5 py-3 rounded font-bold text-[11px] uppercase tracking-wider text-center transition">
+                        <i class="fa-solid fa-copy mr-1"></i> Copy Submission Path
+                    </button>
+                    <button onclick="closeSubmissionModal()" class="flex-1 bg-navy-900 hover:bg-navy-800 text-white px-5 py-3 rounded font-bold text-[11px] uppercase tracking-wider text-center transition">
+                        Understood
+                    </button>
+                </div>
+                
+                <!-- Mini Copy Success Alert -->
+                <div id="copy-toast" class="hidden text-[10px] text-green-700 bg-green-50 border border-green-200 text-center py-2 rounded">
+                    ✓ Link copy successfully logged to your clipboard memory!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Academic Deep Navy Theme) -->
+    <footer class="bg-navy-950 text-slate-400 py-12 border-t border-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <div class="flex items-center justify-center md:justify-start">
+                    <img src="image_24ce60.png" alt="Newlands Clinic Logo" class="h-12 w-auto object-contain bg-white rounded p-1.5 shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/150x50/ffffff/be123c?text=Newlands+Clinic'">
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold uppercase tracking-wider">
+                    <a href="https://www.newlandsclinic.org.zw" target="_blank" class="hover:text-white transition">Newlands Clinic Web</a>
+                    <a href="#about-us" class="hover:text-white transition">About Us</a>
+                    <a href="#curriculum" class="hover:text-white transition">Course Syllabus</a>
+                    <a href="#submissions" class="hover:text-white transition">Submissions</a>
+                </div>
+
+                <div class="text-center md:text-right space-y-1">
+                    <span class="text-xs text-slate-500 block">&copy; 2026 Newlands Clinic Research. All Rights Reserved.</span>
+                    <span class="text-[10px] text-slate-600 block">Leading localized clinical investigations to impact global medical consensus.</span>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal State Variables
+        let activeWeekNum = 0;
+        let activeFileName = '';
+
+        // Handles displaying details in the modal
+        function triggerSubmissionModal(weekNum, title, filename) {
+            activeWeekNum = weekNum;
+            activeFileName = filename;
+            
+            document.getElementById('modal-title').innerText = `Week ${weekNum}: ${title}`;
+            document.getElementById('modal-filename').innerText = filename;
+
+            // Set appropriate modal icons matching file extensions
+            const iconContainer = document.getElementById('modal-icon-container');
+            if (filename.endsWith('.pdf')) {
+                iconContainer.innerHTML = '<i class="fa-solid fa-file-pdf"></i>';
+            } else if (filename.endsWith('.xlsx')) {
+                iconContainer.innerHTML = '<i class="fa-solid fa-file-excel"></i>';
+            } else if (filename.endsWith('.docx') || filename.endsWith('.doc')) {
+                iconContainer.innerHTML = '<i class="fa-solid fa-file-word"></i>';
+            } else {
+                iconContainer.innerHTML = '<i class="fa-solid fa-file-signature"></i>';
+            }
+            
+            const modal = document.getElementById('submission-modal');
+            modal.classList.remove('hidden');
+        }
+
+        // Handles closing the modal
+        function closeSubmissionModal() {
+            document.getElementById('submission-modal').classList.add('hidden');
+            document.getElementById('copy-toast').classList.add('hidden');
+        }
+
+        // Copies mock address securely to Clipboard
+        function mockCopyLink() {
+            const mockUrl = `https://www.newlandsclinic.org.zw/submissions/cohort-02/week${activeWeekNum}/${activeFileName}`;
+            
+            const tempInput = document.createElement('input');
+            tempInput.value = mockUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('hidden');
+        }
+
+        // Filter Function for Submissions Tabs
+        function filterWeeks(category) {
+            const cards = document.querySelectorAll('.week-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.classList.contains(category)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Update Active Tabs look
+            const tabs = ['all', 'epi', 'stats', 'data'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if (tab === category) {
+                    btn.className = "px-4 py-2 bg-navy-900 text-white border border-navy-900 text-xs font-bold rounded transition tracking-wider uppercase";
+                } else {
+                    btn.className = "px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-bold rounded transition tracking-wider uppercase";
+                }
+            });
+        }
+
+        // Handles secure registration interest forms
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const feedbackBox = document.getElementById('form-feedback');
+            
+            feedbackBox.classList.remove('hidden', 'bg-red-50', 'border-red-200', 'text-red-700');
+            feedbackBox.classList.add('bg-green-50', 'border-green-200', 'text-green-700');
+            feedbackBox.innerHTML = `<strong>Inquiry Logged Securely, Dr. ${name}!</strong> Your contact records are catalogued. An academic registrar will reach out to verify your details at <strong>${phone}</strong> within 24-48 business hours with cohort admission schedules.`;
+            
+            document.getElementById('interest-form').reset();
+            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
