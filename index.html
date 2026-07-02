@@ -1,3 +1,13 @@
+To eliminate any unwanted blank spacing or excess trailing whitespace at the bottom of your homepage, we need to address a couple of layout defaults in the CSS classes.
+
+### What was causing the issue:
+
+1. **`min-h-[85vh]` and `min-h-[80vh]`:** Using large viewport-height constraints on sections combined with heavy vertical padding (`py-16`, `py-20`) can cause the browser to stretch containers further than the actual HTML content requires, leading to blank gaps on certain monitor resolutions.
+2. **`overflow-x-hidden` on `<body>`:** Sometimes hiding overflows globally can trick the browser window's scrolling boundaries if margin collapses occur near the footer.
+
+Here is the clean, optimized code update. The sections now snuggly fit their content layout, ensuring the viewport ends exactly where the footer ends:
+
+```html
 <html lang="en" class="scroll-smooth">
 <head>
     <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
@@ -30,8 +40,8 @@
                             300: '#fda4af',
                             400: '#fb7185',
                             500: '#f43f5e',
-                            600: '#be123c', /* Clinical Crimson Red */
-                            700: '#9f1239', /* Deep Crimson */
+                            600: '#be123c', 
+                            700: '#9f1239', 
                             800: '#881337',
                             900: '#4c0519',
                         },
@@ -43,8 +53,8 @@
                             450: '#627d98',
                             600: '#334e68',
                             700: '#243b53',
-                            800: '#102a43', /* Dark Slate Navy Base */
-                            900: '#0b1b2b', /* Deepest Academic Navy */
+                            800: '#102a43', 
+                            900: '#0b1b2b', 
                             950: '#06101a',
                         }
                     }
@@ -85,7 +95,7 @@
         }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden m-0 p-0 box-border">
 
     <!-- Sticky Institutional Navigation Header -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
@@ -116,9 +126,9 @@
     </header>
 
     <!-- MAIN HOME VIEW CONTAINER -->
-    <div id="home-view" class="">
+    <div id="home-view">
         <!-- Hero / Institutional Intro Section -->
-        <section class="relative min-h-[85vh] flex items-center py-16 overflow-hidden bg-slate-50 border-b border-slate-200 bg-grid-pattern">
+        <section class="relative flex items-center py-16 lg:py-24 overflow-hidden bg-slate-50 border-b border-slate-200 bg-grid-pattern">
             <div class="absolute top-1/4 right-0 w-[450px] h-[450px] bg-rose-50/60 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute bottom-12 left-0 w-96 h-96 bg-navy-50/55 rounded-full blur-2xl pointer-events-none"></div>
 
@@ -268,7 +278,7 @@
         </section>
 
         <!-- Dynamic Action Intermission Panel -->
-        <section class="py-16 bg-white border-b border-slate-200 relative text-center">
+        <section class="py-16 bg-white relative text-center">
             <div class="max-w-4xl mx-auto px-4">
                 <h3 class="font-serif font-bold text-2xl text-navy-900 mb-3">Ready to Start Your Research Journey?</h3>
                 <p class="text-slate-600 text-sm max-w-xl mx-auto mb-8 font-light">Applications are reviewed on a rolling basis. Click below to open our official enrollment and evaluation portal directly via Google Forms.</p>
@@ -281,7 +291,7 @@
 
 
     <!-- DEDICATED INSTRUCTORS & MENTORS PAGE VIEW -->
-    <div id="mentors-view" class="hidden min-h-[80vh] bg-slate-50 bg-grid-pattern py-16 border-b border-slate-200">
+    <div id="mentors-view" class="hidden bg-slate-50 bg-grid-pattern py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Back Navigation Button Header -->
@@ -381,7 +391,7 @@
 
 
     <!-- Footer -->
-    <footer class="bg-navy-950 text-slate-400 text-xs py-8 border-t border-navy-900">
+    <footer class="bg-navy-950 text-slate-400 text-xs py-8 border-t border-navy-900 clear-both">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
             <p>&copy; 2026 Newlands Clinic & Ruedi Lüthy Foundation. All rights reserved.</p>
             <p class="text-slate-600">Harare, Zimbabwe.</p>
@@ -390,3 +400,5 @@
 
 </body>
 </html>
+
+```
