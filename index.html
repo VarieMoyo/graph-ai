@@ -1,443 +1,686 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <!-- Botpress Webchat Injection Scripts -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2026/06/25/09/20260625095541-9UXJJ8UK.js" defer></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Masterclass for Clinicians - Portfolio & Syllabus Hub</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Playfair Display (Editorial Serif) & Inter (Clean Sans) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        clinical: {
-                            50: '#fff5f5',
-                            100: '#ffe3e3',
-                            200: '#ffc9c9',
-                            300: '#ffa3a3',
-                            400: '#ff6b6b',
-                            500: '#fa5252',
-                            600: '#cc0a0a', /* Exact Chatbot Red */
-                            700: '#b00808', /* Deeper interactive hover state */
-                            800: '#820505',
-                            900: '#4a0202',
-                        },
-                        navy: {
-                            50: '#f0f4f8',
-                            100: '#d9e2ec',
-                            200: '#bcccdc',
-                            300: '#9fb3c8',
-                            450: '#627d98',
-                            600: '#334e68',
-                            700: '#243b53',
-                            800: '#102a43', 
-                            900: '#0b1b2b', 
-                            950: '#06101a',
-                        }
-                    }
-                }
-            }
-        }
-
-        // Single Page App View Router with Authentication State
-        let isLoggedIn = false;
-
-        function switchView(viewId) {
-            const homeView = document.getElementById('home-view');
-            const mentorsView = document.getElementById('mentors-view');
-            const loginView = document.getElementById('login-view');
-            const studentView = document.getElementById('student-view');
-            
-            // Hide all views initially
-            homeView.classList.add('hidden');
-            mentorsView.classList.add('hidden');
-            loginView.classList.add('hidden');
-            studentView.classList.add('hidden');
-
-            // Route execution
-            if (viewId === 'mentors') {
-                mentorsView.classList.remove('hidden');
-            } else if (viewId === 'login') {
-                loginView.classList.remove('hidden');
-            } else if (viewId === 'student') {
-                if (!isLoggedIn) {
-                    loginView.classList.remove('hidden'); // Redirect to login if unauthorized
-                } else {
-                    studentView.classList.remove('hidden');
-                }
-            } else {
-                homeView.classList.remove('hidden');
-            }
-            window.scrollTo(0, 0);
-        }
-
-        // Simulated Portal Authentication Handler
-        function handleLogin(e) {
-            e.preventDefault();
-            isLoggedIn = true;
-            
-            // Update Navigation Menu UI for Auth State
-            document.getElementById('nav-login-btn').classList.add('hidden');
-            document.getElementById('nav-dashboard-btn').classList.remove('hidden');
-            document.getElementById('nav-logout-btn').classList.remove('hidden');
-            
-            // Transition directly to the student portal environment
-            switchView('student');
-        }
-
-        function handleLogout() {
-            isLoggedIn = false;
-            
-            // Revert Navigation Menu UI
-            document.getElementById('nav-login-btn').classList.remove('hidden');
-            document.getElementById('nav-dashboard-btn').classList.add('hidden');
-            document.getElementById('nav-logout-btn').classList.add('hidden');
-            
-            // Clear simulated forms and return home
-            document.getElementById('login-form').reset();
-            switchView('home');
-        }
-
-        // Quiz State Alert Mockup
-        function launchQuiz(topicNumber, name) {
-            alert(`Initializing Graded Evaluation Terminal:\n\nTopic ${topicNumber}: ${name}\n\nThis quiz contributes towards your formal clinical certification criteria. Click OK to start.`);
-        }
-    </script>
-    
+    <title>Research Masterclass – Grading & Evaluations</title>
     <style>
-        .bg-grid-pattern {
-            background-size: 24px 24px;
-            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+        :root {
+            --primary-navy: #0f172a;       /* Deep Navy */
+            --accent-red: #dc2626;         /* Crimson Red */
+            --accent-red-hover: #b91c1c;   /* Darker Red */
+            --bg-white: #ffffff;           /* Clean White */
+            --bg-light: #f8fafc;           /* Soft Light Gray */
+            --text-dark: #1e293b;          /* Dark Charcoal Text */
+            --text-muted: #64748b;         /* Muted Gray Text */
+            --border-color: #e2e8f0;
         }
-        .bg-dark-grid-pattern {
-            background-size: 24px 24px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
-        .shadow-clinical-soft {
-            box-shadow: 0 4px 30px -4px rgba(11, 27, 43, 0.03), 0 2px 10px -2px rgba(190, 18, 60, 0.02);
+
+        /* --- AUTH WALL OVERLAY --- */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .login-card {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid var(--accent-red);
+        }
+
+        .login-card h2 {
+            margin: 0 0 0.5rem 0;
+            color: var(--primary-navy);
+            font-size: 1.75rem;
+            font-weight: 800;
+        }
+
+        .login-card p {
+            margin: 0 0 1.5rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .login-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .login-field label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+        }
+
+        .login-field input {
+            padding: 0.75rem 1rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .login-field input:focus {
+            border-color: var(--primary-navy);
+        }
+
+        .login-btn {
+            background-color: var(--primary-navy);
+            color: var(--bg-white);
+            border: none;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: #1e293b;
+        }
+
+        .login-error {
+            color: var(--accent-red);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+            font-weight: 600;
+        }
+
+        /* --- APP HEADER --- */
+        header {
+            background-color: var(--primary-navy);
+            color: var(--bg-white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-bottom: 5px solid var(--accent-red);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .header-text p {
+            margin: 0.25rem 0 0 0;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-badge-info {
+            text-align: right;
+            font-size: 0.85rem;
+        }
+
+        .user-badge-name {
+            font-weight: 700;
+            color: var(--bg-white);
+        }
+
+        .user-badge-email {
+            color: #94a3b8;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #475569;
+            color: #94a3b8;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .logout-btn:hover {
+            color: var(--bg-white);
+            border-color: #cbd5e1;
+        }
+
+        /* --- MAIN LAYOUT PLATFORM --- */
+        .main-layout {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* --- SIDEBAR COURSE NAVIGATION --- */
+        .course-sidebar {
+            background: var(--bg-white);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            align-self: start;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin: 0 0 1rem 0;
+            font-weight: 800;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .module-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.75rem;
+            border-radius: 6px;
+            background: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .module-item:hover {
+            background-color: #f1f5f9;
+        }
+
+        .module-item.active {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+            border-left: 4px solid var(--accent-red);
+        }
+
+        .module-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary-navy);
+        }
+
+        .module-status {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .module-item.active .module-status {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        /* --- CONTENT AREAS --- */
+        .quiz-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .quiz-card h2 {
+            margin-top: 0;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hidden-fields {
+            display: none;
+        }
+
+        .question {
+            margin-bottom: 2.5rem;
+            padding: 1.25rem;
+            border-radius: 8px;
+            background-color: #fafafa;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .question p {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-top: 0;
+            color: var(--primary-navy);
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            background: var(--bg-white);
+            padding: 0.85rem 1.2rem;
+            margin: 0.6rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.15s ease;
+        }
+
+        .options label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .options input {
+            margin-right: 1rem;
+            transform: scale(1.15);
+            accent-color: var(--primary-navy);
+        }
+
+        button.submit-btn {
+            background-color: var(--accent-red);
+            color: var(--bg-white);
+            border: none;
+            padding: 1.2rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(220, 38, 38, 0.2);
+        }
+
+        button.submit-btn:hover {
+            background-color: var(--accent-red-hover);
+        }
+
+        #results-box {
+            display: none;
+            margin-top: 2.5rem;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #bbf7d0;
+        }
+
+        .success { 
+            background-color: #f0fdf4; 
+            color: #166534; 
+        }
+
+        .correct-ans { 
+            background-color: #f0fdf4 !important; 
+            border: 1px solid #bbf7d0 !important;
+            border-left: 6px solid #22c55e !important; 
+        }
+        
+        .wrong-ans { 
+            background-color: #fef2f2 !important; 
+            border: 1px solid #fca5a5 !important;
+            border-left: 6px solid #ef4444 !important; 
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .user-badge {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            .user-badge-info {
+                text-align: center;
+            }
         }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden m-0 p-0 box-border">
+<body>
 
-    <!-- Sticky Institutional Navigation Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- Logo Block -->
-                <div class="flex items-center cursor-pointer" onclick="switchView('home')">
-                    <img src="nc-logo.png" alt="Newlands Clinic Logo" class="h-14 sm:h-16 w-auto object-contain">
-                </div>
-                
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center space-x-8">
-                    <button onclick="switchView('home')" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Home</button>
-                    <a href="#about-us" onclick="switchView('home')" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">About Us</a>
-                    <a href="#curriculum" onclick="switchView('home')" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Syllabus</a>
-                    <button onclick="switchView('mentors')" class="text-xs uppercase tracking-wider font-semibold text-slate-600 hover:text-clinical-600 transition">Instructors & Mentors</button>
-                    <button id="nav-dashboard-btn" onclick="switchView('student')" class="hidden text-xs uppercase tracking-wider font-bold text-clinical-600 hover:text-clinical-700 transition"><i class="fa-solid fa-gauge mr-1"></i> Portal Dashboard</button>
-                </nav>
-
-                <!-- Action Button Matrix -->
-                <div class="flex items-center space-x-3">
-                    <button id="nav-login-btn" onclick="switchView('login')" class="border border-slate-300 text-slate-700 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-bold hover:bg-slate-50 transition">
-                        Student Login
-                    </button>
-                    <button id="nav-logout-btn" onclick="handleLogout()" class="hidden border border-slate-200 text-slate-500 px-4 py-2.5 rounded text-xs uppercase tracking-wider font-medium hover:bg-slate-50 transition">
-                        Logout
-                    </button>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKfdYu5QoGLaVBjnap2C-2eWHKIxW41gjcARHZ33Of7cQe7Q/viewform?usp=dialog" target="_blank" class="bg-clinical-600 hover:bg-clinical-700 text-white px-5 py-2.5 rounded text-xs uppercase tracking-wider font-bold shadow-sm transition">
-                        Express Interest
-                    </a>
-                </div>
+<!-- --- AUTH WALL GATE --- -->
+<div id="login-overlay">
+    <div class="login-card">
+        <h2>Student Portal</h2>
+        <p>Please log in using your Masterclass credentials to access course material.</p>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="login-field">
+                <label for="loginName">Full Name</label>
+                <input type="text" id="loginName" placeholder="Rumbidzai Moyo" required>
             </div>
-        </div>
-    </header>
-
-    <!-- MAIN HOME VIEW CONTAINER -->
-    <div id="home-view">
-        <!-- Hero Section -->
-        <section class="relative flex items-center py-16 lg:py-24 overflow-hidden bg-slate-50 border-b border-slate-200 bg-grid-pattern">
-            <div class="absolute top-1/4 right-0 w-[450px] h-[450px] bg-rose-50/60 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
-                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 bg-clinical-50 border border-clinical-200 px-3.5 py-1.5 rounded text-[11px] font-extrabold text-clinical-700 uppercase tracking-wider">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            A 12-Week Online Training Programme
-                        </div>
-                        <h1 class="font-serif font-extrabold text-4xl sm:text-5xl lg:text-6xl text-navy-900 leading-[1.1] tracking-tight">
-                            Research Masterclass <br>
-                            <span class="text-clinical-600 font-normal italic">for Clinicians</span>
-                        </h1>
-                        <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-                            Foundations in Epidemiology, Statistics, and Scientific Writing. Empowering clinical observers to confidently transition into lead researchers.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                            <button onclick="switchView('mentors')" class="bg-clinical-600 hover:bg-clinical-700 text-white px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider shadow-md text-center transition duration-300">
-                                Meet Instructors & Mentors
-                            </button>
-                            <button onclick="switchView('login')" class="bg-white border border-slate-300 text-slate-700 px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider shadow-sm text-center hover:bg-slate-50 transition duration-300">
-                                Access Student Course Portal
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5 relative">
-                        <div class="relative bg-white border border-slate-200 rounded p-6 sm:p-8 shadow-clinical-soft">
-                            <div class="absolute top-0 left-0 right-0 h-1 bg-clinical-600 rounded-t"></div>
-                            <span class="text-[10px] font-extrabold text-navy-600 uppercase tracking-wider block mb-4">Course Competency Index</span>
-                            <div class="space-y-4">
-                                <div class="flex justify-between text-xs font-semibold">
-                                    <span class="text-slate-700">Module 1: Epidemiology</span>
-                                    <span class="text-clinical-600">Weeks 1-6</span>
-                                </div>
-                                <div class="flex justify-between text-xs font-semibold">
-                                    <span class="text-slate-700">Module 2: Statistics</span>
-                                    <span class="text-navy-800">Weeks 7-12</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="login-field">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" placeholder="rumbimoyo@domain.com" required>
             </div>
-        </section>
-
-        <!-- About Newlands Clinic Section -->
-        <section id="about-us" class="py-20 bg-white relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs uppercase font-extrabold text-clinical-600 tracking-widest block">About Us</span>
-                        <h2 class="font-serif font-extrabold text-3xl sm:text-4xl text-navy-900 leading-tight">
-                            Newlands Clinic & The Ruedi Lüthy Foundation
-                        </h2>
-                        <p class="text-slate-600 leading-relaxed font-light text-base">
-                            Funded and operated by the Swiss charitable organisation **Ruedi Lüthy Foundation**, **Newlands Clinic** is an outpatient clinic located in Harare, Zimbabwe. The clinic provides comprehensive, long-term care and treatment to destitute HIV and Aids patients in southern Africa.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <button type="submit" class="login-btn">Verify Credentials</button>
+            <div id="loginError" class="login-error">Authentication failed. Please use valid details.</div>
+        </form>
     </div>
+</div>
 
-    <!-- INSTRUCTORS & MENTORS PAGE VIEW -->
-    <div id="mentors-view" class="hidden bg-slate-50 bg-grid-pattern py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-10">
-                <button onclick="switchView('home')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-clinical-600 transition">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Main Page
-                </button>
+<!-- --- PORTAL HEADER --- -->
+<header>
+    <div class="header-container">
+        <div class="header-text">
+            <h1>RESEARCH MASTERCLASS</h1>
+            <p>Course Portal & Evaluations</p>
+        </div>
+        <div class="user-badge" id="userBadge" style="display: none;">
+            <div class="user-badge-info">
+                <div class="user-badge-name" id="badgeName"></div>
+                <div class="user-badge-email" id="badgeEmail"></div>
             </div>
-            <div class="border-b border-slate-200 pb-8 mb-12">
-                <h1 class="font-serif font-extrabold text-4xl text-navy-900 tracking-tight">Course Instructors & Mentors</h1>
-            </div>
+            <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+        </div>
+    </div>
+</header>
+
+<!-- --- MAIN INTERACTIVE WORKSPACE --- -->
+<div class="main-layout">
+    
+    <!-- TIMELINE SIDEBAR MAP -->
+    <aside class="course-sidebar">
+        <h3 class="sidebar-section-title">Course Schedule</h3>
+        <div class="module-list">
+            <button class="module-item active">
+                <span class="module-title">Topic 1: Epidemiology Fundamentals</span>
+                <span class="module-status">Quiz Active</span>
+            </button>
+            <button class="module-item" onclick="alert('Topic 2 modules are currently being finalized.')">
+                <span class="module-title">Topic 2: Biostatistics & R</span>
+                <span class="module-status">Locked</span>
+            </button>
+            <button class="module-item" onclick="alert('Topic 3 modules are currently being finalized.')">
+                <span class="module-title">Topic 3: Study Methodologies</span>
+                <span class="module-status">Locked</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- CONTENT DISPLAY REGION -->
+    <main class="quiz-container">
+        <div class="quiz-card">
+            <h2>Topic 1: Introduction to Fundamentals of Epidemiology</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Varaidzo Moyo -->
-                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
-                    <div class="w-24 h-24 rounded flex-shrink-0 border border-slate-200 overflow-hidden bg-slate-100"></div>
-                    <div class="space-y-1 text-center sm:text-left">
-                        <h3 class="font-serif font-bold text-xl text-navy-900">Varaidzo Moyo</h3>
-                        <p class="text-clinical-600 font-medium text-xs uppercase tracking-wider">RM Course Coordinator</p>
-                        <p class="text-slate-500 text-xs font-semibold pt-1">MSc Public Health / Data Analyst</p>
+            <form id="quizForm">
+                <!-- Data injection occurs automatically from authenticated profiles -->
+                <div class="hidden-fields">
+                    <input type="text" id="studentName" required>
+                    <input type="email" id="studentEmail" required>
+                </div>
+
+                <div class="question" id="q1-meta">
+                    <p>1. A study follows a cohort of HIV-positive patients at Newlands Clinic to see if their ART regimen is associated with new-onset diabetes. What is the exposure and what is the outcome?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A" required> A. Exposure: New-onset diabetes; Outcome: ART regimen</label>
+                        <label><input type="radio" name="q1" value="B"> B. Exposure: ART regimen; Outcome: New-onset diabetes</label>
+                        <label><input type="radio" name="q1" value="C"> C. Exposure: New-onset diabetes; Outcome: HIV status</label>
+                        <label><input type="radio" name="q1" value="D"> D. Exposure: HIV status; Outcome: ART regimen</label>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- STUDENT AUTHENTICATION SECURE VIEW -->
-    <div id="login-view" class="hidden bg-slate-50 bg-grid-pattern py-24">
-        <div class="max-w-md mx-auto px-4">
-            <div class="bg-white border border-slate-200 rounded p-8 shadow-clinical-soft relative">
-                <div class="absolute top-0 left-0 right-0 h-1 bg-clinical-600 rounded-t"></div>
-                <div class="text-center mb-6">
-                    <h2 class="font-serif font-extrabold text-2xl text-navy-900">Student Portal Access</h2>
+                <div class="question" id="q2-meta">
+                    <p>2. During the 2023–2024 Zimbabwe cholera outbreak, investigators compared the number of cases in districts with community water-source improvement programs versus those without. This is an example of:</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A" required> A. Descriptive epidemiology</label>
+                        <label><input type="radio" name="q2" value="B"> B. Analytical (observational) epidemiology</label>
+                        <label><input type="radio" name="q2" value="C"> C. A randomized controlled trial</label>
+                        <label><input type="radio" name="q2" value="D"> D. Purely demographic reporting</label>
+                    </div>
                 </div>
-                <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Email</label>
-                        <input type="email" placeholder="username@newlandsclinic.org.zw" required class="w-full px-3.5 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-clinical-500 transition">
+
+                <div class="question" id="q3-meta">
+                    <p>3. A researcher reports that "Malaria prevalence among children under 5 in a rural district of Manicaland was 8% in April 2026." Which part of the "Person, Place, Time" framework is missing or vague?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A" required> A. Person</label>
+                        <label><input type="radio" name="q3" value="B"> B. Place</label>
+                        <label><input type="radio" name="q3" value="C"> C. Time</label>
+                        <label><input type="radio" name="q3" value="D"> D. None; all three are clearly provided.</label>
                     </div>
-                    <div>
-                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">Access Token</label>
-                        <input type="password" placeholder="••••••••" required class="w-full px-3.5 py-2 border border-slate-300 rounded text-sm focus:outline-none focus:border-clinical-500 transition">
+                </div>
+
+                <div class="question" id="q4-meta">
+                    <p>4. A study finds that Syphilis rates are higher in urban areas compared to rural areas in Zimbabwe. To determine if area of residence is a true "risk factor" rather than just a distribution pattern, the researchers must move from:</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A" required> A. Analytical to Descriptive epidemiology</label>
+                        <label><input type="radio" name="q4" value="B"> B. Descriptive to Analytical epidemiology</label>
+                        <label><input type="radio" name="q4" value="C"> C. Interventional to Observational epidemiology</label>
+                        <label><input type="radio" name="q4" value="D"> D. Population to High-risk strategy</label>
                     </div>
-                    <button type="submit" class="w-full bg-navy-800 hover:bg-navy-900 text-white font-bold text-xs uppercase tracking-wider py-3 rounded transition shadow">
-                        Authenticate Account
-                    </button>
-                </form>
+                </div>
+
+                <div class="question" id="q5-meta">
+                    <p>5. A public health program encourages all adults in Harare to reduce salt intake to lower population-wide blood pressure levels. This is a:</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A" required> A. High-risk strategy</label>
+                        <label><input type="radio" name="q5" value="B"> B. Population strategy</label>
+                        <label><input type="radio" name="q5" value="C"> C. Case-finding study</label>
+                        <label><input type="radio" name="q5" value="D"> D. Randomized trial</label>
+                    </div>
+                </div>
+
+                <div class="question" id="q6-meta">
+                    <p>6. Why is a "case definition" (e.g., specific fever and bleeding symptoms) essential during an Ebola outbreak?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A" required> A. To ensure everyone in the country is tested.</label>
+                        <label><input type="radio" name="q6" value="B"> B. To ensure the numerator (cases) is counted consistently across different provinces.</label>
+                        <label><input type="radio" name="q6" value="C"> C. To determine if the virus is a NCD.</label>
+                        <label><input type="radio" name="q6" value="D"> D. To eliminate the need for a denominator.</label>
+                    </div>
+                </div>
+
+                <div class="question" id="q7-meta">
+                    <p>7. A researcher notes that 12 Hantavirus cases occurred in a mountain village of 1,200 people. If they calculate 12 / 1200 = 0.01 (or 1%), what is the 1,200?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A" required> A. The incidence</label>
+                        <label><input type="radio" name="q7" value="B"> B. The numerator</label>
+                        <label><input type="radio" name="q7" value="C"> C. The denominator</label>
+                        <label><input type="radio" name="q7" value="D"> D. The distribution</label>
+                    </div>
+                </div>
+
+                <div class="question" id="q8-meta">
+                    <p>8. In a study where researchers randomly assign two different vaccination schedules to two groups of volunteers in Harare, what type of epidemiology is this?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A" required> A. Interventional and Analytical</label>
+                        <label><input type="radio" name="q8" value="B"> B. Observational and Descriptive</label>
+                        <label><input type="radio" name="q8" value="C"> C. Descriptive and Analytical</label>
+                        <label><input type="radio" name="q8" value="D"> D. Observational and Interventional</label>
+                    </div>
+                </div>
+
+                <div class="question" id="q9-meta">
+                    <p>9. Which of the following is the best example of a "High-risk strategy" for Malaria control?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A" required> A. Installing window screens in every home in the country.</label>
+                        <label><input type="radio" name="q9" value="B"> B. Spraying the entire district with insecticide.</label>
+                        <label><input type="radio" name="q9" value="C"> C. Providing prophylactic medication specifically to pregnant women.</label>
+                        <label><input type="radio" name="q9" value="D"> D. Educating the entire population on malaria symptoms.</label>
+                    </div>
+                </div>
+
+                <div class="question" id="q10-meta">
+                    <p>10. A researcher finds an association between owning a smartphone and higher viral suppression rates in HIV patients. They conclude that "smartphones cause viral suppression." Why is this potentially flawed?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A" required> A. Because it is an interventional study.</label>
+                        <label><input type="radio" name="q10" value="B"> B. Because association does not prove causation; there may be "confounders" (e.g., higher income).</label>
+                        <label><input type="radio" name="q10" value="C"> C. Because the denominator is too large.</label>
+                        <label><input type="radio" name="q10" value="D"> D. Because smartphones are not a medical exposure.</label>
+                    </div>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="gradeQuiz()">Submit Answers & View Grade</button>
+            </form>
+
+            <div id="results-box" class="success">
+                <h3>Quiz Completed Successfully!</h3>
+                <p id="score-text" style="font-size: 1.75rem; font-weight: 800; margin: 0.5rem 0;"></p>
+                <p style="margin-top: 0; font-weight: 500;">Your answers have been securely recorded.</p>
             </div>
         </div>
-    </div>
+    </main>
+</div>
 
-    <!-- CLINICAL STUDENT DASHBOARD & PORTAL PORTFOLIO (WITH TOPICS 1-6 & QUIZZES) -->
-    <div id="student-view" class="hidden bg-slate-50 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+<script>
+    const targetAnswers = { q1: "B", q2: "B", q3: "D", q4: "B", q5: "B", q6: "B", q7: "C", q8: "A", q9: "C", q10: "B" };
+
+    // Initialization check on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const storedName = localStorage.getItem('rm_student_name');
+        const storedEmail = localStorage.getItem('rm_student_email');
+        if (storedName && storedEmail) {
+            bypassLogin(storedName, storedEmail);
+        }
+    });
+
+    function handleLogin(e) {
+        e.preventDefault();
+        const name = document.getElementById('loginName').value.trim();
+        const email = document.getElementById('loginEmail').value.trim();
+
+        if(name && email) {
+            localStorage.setItem('rm_student_name', name);
+            localStorage.setItem('rm_student_email', email);
+            bypassLogin(name, email);
+        } else {
+            document.getElementById('loginError').style.display = 'block';
+        }
+    }
+
+    function bypassLogin(name, email) {
+        // Populating profile datasets
+        document.getElementById('studentName').value = name;
+        document.getElementById('studentEmail').value = email;
+
+        // Display Header profile badge
+        document.getElementById('badgeName').innerText = name;
+        document.getElementById('badgeEmail').innerText = email;
+        document.getElementById('userBadge').style.display = 'flex';
+
+        // Animate overlay dismissal
+        document.getElementById('login-overlay').style.display = 'none';
+    }
+
+    function handleLogout() {
+        localStorage.removeItem('rm_student_name');
+        localStorage.removeItem('rm_student_email');
+        window.location.reload();
+    }
+
+    function gradeQuiz() {
+        const form = document.getElementById('quizForm');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        let totalScore = 0;
+        const totalQuestions = 10;
+        let studentResponses = {};
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const fieldName = `q${i}`;
+            const selected = form.elements[fieldName].value;
+            studentResponses[fieldName] = selected;
+
+            const questionContainer = form.elements[fieldName][0].closest('.question');
             
-            <div class="bg-navy-900 rounded p-6 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow">
-                <div>
-                    <span class="bg-clinical-600 text-[9px] uppercase font-extrabold px-2 py-0.5 rounded tracking-wider">Module 1 Access Grid</span>
-                    <h2 class="font-serif text-2xl font-bold mt-1">Research Design & Clinical Epidemiology</h2>
-                    <p class="text-slate-300 text-xs font-light">Complete the required reading assignments and corresponding topic grading quizzes below.</p>
-                </div>
-            </div>
+            if (selected === targetAnswers[fieldName]) {
+                totalScore++;
+                questionContainer.classList.add('correct-ans');
+                questionContainer.classList.remove('wrong-ans');
+            } else {
+                questionContainer.classList.add('wrong-ans');
+                questionContainer.classList.remove('correct-ans');
+            }
+        }
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Left Column: Topics 1-6 Workspace Layout -->
-                <div class="lg:col-span-8 space-y-6">
-                    
-                    <!-- Topic 1 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 01</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Formulating Clinical Questions & Hypothesis Testing</h4>
-                            </div>
-                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Completed</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Introduction to drafting testable, clinically relevant investigations using systematic frameworks and structural definitions.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-700"><i class="fa-solid fa-square-poll-vertical text-clinical-600 mr-1.5"></i>Topic 1 Grading Quiz</span>
-                            <button onclick="launchQuiz(1, 'Formulating Clinical Questions')" class="bg-navy-800 hover:bg-navy-900 text-white font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded transition">Review Quiz (Score: 90%)</button>
-                        </div>
-                    </div>
+        document.getElementById('score-text').innerText = `Score: ${totalScore} / ${totalQuestions} (${(totalScore/totalQuestions)*100}%)`;
+        document.getElementById('results-box').style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
-                    <!-- Topic 2 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 02</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Cohort Study Architecture & Selection Bias</h4>
-                            </div>
-                            <span class="bg-amber-50 text-amber-700 border border-amber-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Action Required</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Structuring prospective and retrospective population paths while aggressively controlling baseline screening variations.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-700"><i class="fa-solid fa-square-poll-vertical text-clinical-600 mr-1.5"></i>Topic 2 Grading Quiz</span>
-                            <button onclick="launchQuiz(2, 'Cohort Study Architecture')" class="bg-clinical-600 hover:bg-clinical-700 text-white font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded transition animate-pulse">Launch Graded Quiz</button>
-                        </div>
-                    </div>
+        sendDataToGoogleForm(
+            document.getElementById('studentName').value,
+            document.getElementById('studentEmail').value,
+            `${totalScore}/${totalQuestions}`,
+            studentResponses
+        );
+    }
 
-                    <!-- Topic 3 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 03</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Cross-Sectional Designs & Prevalence Metrics</h4>
-                            </div>
-                            <span class="bg-slate-100 text-slate-600 border border-slate-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Not Started</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Measuring event ratios and occurrences across a fixed snapshot window without explicit exposure tracing intervals.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-square-poll-vertical text-slate-400 mr-1.5"></i>Topic 3 Grading Quiz</span>
-                            <button onclick="launchQuiz(3, 'Cross-Sectional Designs')" class="bg-slate-200 text-slate-400 font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded cursor-not-allowed" disabled>Locked Until Topic 2 Done</button>
-                        </div>
-                    </div>
+    function sendDataToGoogleForm(name, email, score, answers) {
+        const formID = "1FAIpQLSc73LAdSXamCN8fNnflvmsE61CY1LqKpyzFe4zt_rzEO8bcGg"; 
+        const formData = new URLSearchParams();
+        
+        formData.append('entry.1801781895', name);
+        formData.append('entry.884515740', email);
+        formData.append('entry.334207621', score);
+        formData.append('entry.1016544568', `Chosen: ${answers.q1} (Correct: ${targetAnswers.q1})`);
+        formData.append('entry.656783905',  `Chosen: ${answers.q2} (Correct: ${targetAnswers.q2})`);
+        formData.append('entry.565293679',  `Chosen: ${answers.q3} (Correct: ${targetAnswers.q3})`);
+        formData.append('entry.1543297465', `Chosen: ${answers.q4} (Correct: ${targetAnswers.q4})`);
+        formData.append('entry.1515290739', `Chosen: ${answers.q5} (Correct: ${targetAnswers.q5})`);
+        formData.append('entry.589365507',  `Chosen: ${answers.q6} (Correct: ${targetAnswers.q6})`);
+        formData.append('entry.1874149091', `Chosen: ${answers.q7} (Correct: ${targetAnswers.q7})`);
+        formData.append('entry.296423191',  `Chosen: ${answers.q8} (Correct: ${targetAnswers.q8})`);
+        formData.append('entry.118915032',  `Chosen: ${answers.q9} (Correct: ${targetAnswers.q9})`);
+        formData.append('entry.1857509370', `Chosen: ${answers.q10} (Correct: ${targetAnswers.q10})`);
 
-                    <!-- Topic 4 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 04</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Case-Control Frameworks & Odds Ratios</h4>
-                            </div>
-                            <span class="bg-slate-100 text-slate-600 border border-slate-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Not Started</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Retrospectively mapping outlier groups to control clusters to determine log-odds risk exposure probabilities.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-square-poll-vertical text-slate-400 mr-1.5"></i>Topic 4 Grading Quiz</span>
-                            <button onclick="launchQuiz(4, 'Case-Control Frameworks')" class="bg-slate-200 text-slate-400 font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded cursor-not-allowed" disabled>Locked</button>
-                        </div>
-                    </div>
-
-                    <!-- Topic 5 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 05</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Confounding, Stratification & Interaction Errors</h4>
-                            </div>
-                            <span class="bg-slate-100 text-slate-600 border border-slate-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Not Started</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Isolating extraneous proxy pathways using structured subset cross-examinations and data adjustments.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-square-poll-vertical text-slate-400 mr-1.5"></i>Topic 5 Grading Quiz</span>
-                            <button onclick="launchQuiz(5, 'Confounding & Stratification')" class="bg-slate-200 text-slate-400 font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded cursor-not-allowed" disabled>Locked</button>
-                        </div>
-                    </div>
-
-                    <!-- Topic 6 Card -->
-                    <div class="bg-white border border-slate-200 rounded p-6 shadow-sm space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
-                            <div>
-                                <span class="text-xs font-extrabold text-clinical-600 uppercase tracking-widest block">Topic 06</span>
-                                <h4 class="font-serif font-bold text-lg text-navy-900">Diagnostic Testing Matrix & Clinical Sensitivity</h4>
-                            </div>
-                            <span class="bg-slate-100 text-slate-600 border border-slate-200 rounded px-2.5 py-0.5 font-bold text-[10px] uppercase w-fit">Not Started</span>
-                        </div>
-                        <p class="text-slate-600 text-xs font-light">Evaluating diagnostic tools through comprehensive assessments of true positive tracking rates and predictive value matrices.</p>
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-2 bg-slate-50 p-3 rounded border border-slate-100">
-                            <span class="text-xs font-semibold text-slate-500"><i class="fa-solid fa-square-poll-vertical text-slate-400 mr-1.5"></i>Topic 6 Grading Quiz</span>
-                            <button onclick="launchQuiz(6, 'Diagnostic Testing Matrix')" class="bg-slate-200 text-slate-400 font-bold text-[10px] uppercase tracking-wider px-4 py-2 rounded cursor-not-allowed" disabled>Locked</button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Right Column Side Panel -->
-                <div class="lg:col-span-4 space-y-6">
-                    <div class="bg-white border border-slate-200 rounded p-5 shadow-sm space-y-4">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-navy-800"><i class="fa-solid fa-chart-line text-clinical-600 mr-1.5"></i>Progress Overview</h4>
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-xs">
-                                <span class="text-slate-500">Topics Evaluated</span>
-                                <span class="font-bold text-navy-900">1 / 6</span>
-                            </div>
-                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                                <div class="bg-clinical-600 h-full rounded-full" style="width: 16.6%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 bg-slate-100 rounded text-center">
-                        <button onclick="switchView('home')" class="text-xs text-slate-600 font-semibold hover:text-clinical-600 transition">
-                            <i class="fa-solid fa-house text-[10px] mr-1"></i> Exit Workspace View
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-navy-950 text-slate-400 text-xs py-8 border-t border-navy-900 clear-both">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
-            <p>&copy; 2026 Newlands Clinic & Ruedi Lüthy Foundation. All rights reserved.</p>
-        </div>
-    </footer>
-
+        fetch(`https://docs.google.com/forms/d/e/${formID}/formResponse`, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
+        }).then(() => {
+            console.log("Transmission captured successfully.");
+        }).catch(err => console.error("Write error:", err));
+    }
+</script>
 </body>
 </html>
