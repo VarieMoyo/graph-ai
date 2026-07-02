@@ -10,7 +10,7 @@
     <!-- Google Fonts: Playfair Display (Editorial Serif) & Inter (Clean Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -94,7 +94,7 @@
                 
                 <!-- Logo Block -->
                 <div class="flex items-center cursor-pointer" onclick="switchView('home')">
-                    <img src="image_24ce60.png" alt="Newlands Clinic Logo" class="h-14 sm:h-16 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/180x60/ffffff/be123c?text=Newlands+Clinic'">
+                    <img src="nc-logo.png" alt="Newlands Clinic Logo" class="h-14 sm:h-16 w-auto object-contain">
                 </div>
                 
                 <!-- Desktop Navigation Links -->
@@ -144,9 +144,6 @@
                             <button onclick="switchView('mentors')" class="bg-clinical-600 hover:bg-clinical-700 text-white px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider shadow-md text-center transition duration-300">
                                 Meet Instructors & Mentors
                             </button>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKfdYu5QoGLaVBjnap2C-2eWHKIxW41gjcARHZ33Of7cQe7Q/viewform?usp=dialog" target="_blank" class="bg-navy-900 hover:bg-navy-850 text-white px-8 py-3.5 rounded font-bold text-xs uppercase tracking-wider shadow-md text-center transition duration-300">
-                                Express Interest Now
-                            </a>
                         </div>
 
                         <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200 max-w-md mx-auto lg:mx-0">
@@ -292,7 +289,7 @@
     </div>
 
 
-    <!-- DEDICATED INSTRUCTORS & MENTORS PAGE VIEW (Hidden by Default) -->
+    <!-- DEDICATED INSTRUCTORS & MENTORS PAGE VIEW -->
     <div id="mentors-view" class="hidden min-h-[80vh] bg-slate-50 bg-grid-pattern py-16 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -311,94 +308,83 @@
                     Meet the research specialists, public health officers, and clinical epidemiologists guiding the Research Masterclass for Clinicians cohort.
                 </p>
             </div>
-
-            <!-- LEADERSHIP AND DIRECTORS ROW -->
-            <div class="mb-16">
-                <h2 class="text-xs uppercase font-extrabold text-navy-900 tracking-widest border-l-4 border-clinical-600 pl-3 mb-8">Program Leadership</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <!-- Ardele Mandiriri-Ndanga -->
-                    <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
-                        <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
-                            <i class="fa-solid fa-user-tie text-3xl text-slate-300"></i>
-                        </div>
-                        <div class="space-y-1 text-center sm:text-left">
-                            <h3 class="font-serif font-bold text-xl text-navy-900">Ardele Mandiriri-Ndanga</h3>
-                            <p class="text-clinical-600 font-medium text-xs uppercase tracking-wider">RM Course Director</p>
-                            <p class="text-slate-500 text-xs font-semibold pt-1">PhD Epidemiologist / Data Analyst & Generative AI Researcher</p>
-                        </div>
+            
+            <!-- Unified Faculty Layout (All headings removed) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Ardele Mandiriri-Ndanga -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user-tie text-3xl text-slate-300"></i>
                     </div>
-
-                    <!-- Varaidzo Moyo -->
-                    <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
-                        <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
-                            <i class="fa-solid fa-user text-3xl text-slate-300"></i>
-                        </div>
-                        <div class="space-y-1 text-center sm:text-left">
-                            <h3 class="font-serif font-bold text-xl text-navy-900">Varaidzo Moyo</h3>
-                            <p class="text-clinical-600 font-medium text-xs uppercase tracking-wider">RM Course Coordinator</p>
-                            <p class="text-slate-500 text-xs font-semibold pt-1">MSc Public Health / Data Analyst</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- COURSE INSTRUCTORS GRID -->
-            <div class="mb-16">
-                <h2 class="text-xs uppercase font-extrabold text-navy-900 tracking-widest border-l-4 border-navy-800 pl-3 mb-8">Core Instructors</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- Dr. Cleophas Chimbetete -->
-                    <div class="bg-white border border-slate-200 rounded p-6 text-center shadow-sm flex flex-col items-center">
-                        <div class="w-20 h-20 rounded bg-slate-100 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400 mb-4">
-                            <i class="fa-solid fa-user-doctor text-2xl text-slate-300"></i>
-                        </div>
-                        <h3 class="font-serif font-bold text-lg text-navy-900">Dr. Cleophas Chimbetete</h3>
-                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider mb-2">RM Instructor</p>
-                        <p class="text-slate-500 text-xs">Director Research & Training <br><span class="font-mono font-semibold">MBCHB, MPH, PhD</span></p>
-                    </div>
-
-                    <!-- Dr. Tinei Shamu -->
-                    <div class="bg-white border border-slate-200 rounded p-6 text-center shadow-sm flex flex-col items-center">
-                        <div class="w-20 h-20 rounded bg-slate-100 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400 mb-4">
-                            <i class="fa-solid fa-user-doctor text-2xl text-slate-300"></i>
-                        </div>
-                        <h3 class="font-serif font-bold text-lg text-navy-900">Dr. Tinei Shamu</h3>
-                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider mb-2">RM Instructor</p>
-                        <p class="text-slate-500 text-xs">PhD Epidemiologist</p>
-                    </div>
-
-                    <!-- Tinashe Mudzviti -->
-                    <div class="bg-white border border-slate-200 rounded p-6 text-center shadow-sm flex flex-col items-center">
-                        <div class="w-20 h-20 rounded bg-slate-100 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400 mb-4">
-                            <i class="fa-solid fa-user text-2xl text-slate-300"></i>
-                        </div>
-                        <h3 class="font-serif font-bold text-lg text-navy-900">Tinashe Mudzviti</h3>
-                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider mb-2">RM Instructor</p>
-                        <p class="text-slate-500 text-xs">PhD Candidate</p>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ASSOCIATES & OPERATIONS ROW -->
-            <div>
-                <h2 class="text-xs uppercase font-extrabold text-navy-900 tracking-widest border-l-4 border-slate-400 pl-3 mb-6">Program Operations</h2>
-                <div class="max-w-md">
-                    <div class="bg-white border border-slate-200 rounded p-5 flex items-center gap-4 shadow-sm">
-                        <div class="w-14 h-14 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 text-slate-400">
-                            <i class="fa-solid fa-user text-lg text-slate-300"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-serif font-bold text-base text-navy-900">Buntubethu Sydney Malunga</h3>
-                            <p class="text-clinical-600 text-[10px] font-medium uppercase tracking-wider">RM Course Coordinator Assistant</p>
-                            <p class="text-slate-500 text-xs mt-0.5">Data Analyst</p>
-                        </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Ardele Mandiriri-Ndanga</h3>
+                        <p class="text-clinical-600 font-medium text-xs uppercase tracking-wider">RM Course Director</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">PhD Epidemiologist / Data Analyst & Generative AI Researcher</p>
                     </div>
                 </div>
-            </div>
 
+                <!-- Varaidzo Moyo -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user text-3xl text-slate-300"></i>
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Varaidzo Moyo</h3>
+                        <p class="text-clinical-600 font-medium text-xs uppercase tracking-wider">RM Course Coordinator</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">MSc Public Health / Data Analyst</p>
+                    </div>
+                </div>
+
+                <!-- Dr. Cleophas Chimbetete -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user-doctor text-3xl text-slate-300"></i>
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Dr. Cleophas Chimbetete</h3>
+                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider">RM Instructor</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">Director Research & Training <br><span class="font-mono font-semibold">MBCHB, MPH, PhD</span></p>
+                    </div>
+                </div>
+
+                <!-- Dr. Tinei Shamu -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user-doctor text-3xl text-slate-300"></i>
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Dr. Tinei Shamu</h3>
+                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider">RM Instructor</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">PhD Epidemiologist</p>
+                    </div>
+                </div>
+
+                <!-- Tinashe Mudzviti -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user text-3xl text-slate-300"></i>
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Tinashe Mudzviti</h3>
+                        <p class="text-clinical-600 text-[11px] font-medium uppercase tracking-wider">RM Instructor</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">PhD Candidate</p>
+                    </div>
+                </div>
+
+                <!-- Buntubethu Sydney Malunga -->
+                <div class="bg-white border border-slate-200 rounded p-6 flex flex-col sm:flex-row gap-6 items-center sm:items-start shadow-sm">
+                    <div class="w-24 h-24 rounded bg-slate-100 flex-shrink-0 flex items-center justify-center border border-slate-200 overflow-hidden text-slate-400">
+                        <i class="fa-solid fa-user text-3xl text-slate-300"></i>
+                    </div>
+                    <div class="space-y-1 text-center sm:text-left">
+                        <h3 class="font-serif font-bold text-xl text-navy-900">Buntubethu Sydney Malunga</h3>
+                        <p class="text-clinical-600 text-[10px] font-medium uppercase tracking-wider">RM Course Coordinator Assistant</p>
+                        <p class="text-slate-500 text-xs font-semibold pt-1">Data Analyst</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -407,7 +393,7 @@
     <footer class="bg-navy-950 text-slate-400 text-xs py-8 border-t border-navy-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
             <p>&copy; 2026 Newlands Clinic & Ruedi Lüthy Foundation. All rights reserved.</p>
-            <p class="text-slate-600">Harare, Zimbabwe & Zurich, Switzerland.</p>
+            <p class="text-slate-600">Harare, Zimbabwe.</p>
         </div>
     </footer>
 
