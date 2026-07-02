@@ -1,17 +1,15 @@
-To eliminate any unwanted blank spacing or excess trailing whitespace at the bottom of your homepage, we need to address a couple of layout defaults in the CSS classes.
+Awesome. I noticed that the `configUrl` in your new Botpress link points to an updated configuration JSON file: `20260625095541-GSKJIOUD.json`.
 
-### What was causing the issue:
+To make sure your webpage initialization matches this new chatbot backend exactly, I have updated the script tag in the `<head>` to reference this latest setup.
 
-1. **`min-h-[85vh]` and `min-h-[80vh]`:** Using large viewport-height constraints on sections combined with heavy vertical padding (`py-16`, `py-20`) can cause the browser to stretch containers further than the actual HTML content requires, leading to blank gaps on certain monitor resolutions.
-2. **`overflow-x-hidden` on `<body>`:** Sometimes hiding overflows globally can trick the browser window's scrolling boundaries if margin collapses occur near the footer.
-
-Here is the clean, optimized code update. The sections now snuggly fit their content layout, ensuring the viewport ends exactly where the footer ends:
+Here is your fully updated code, maintaining the crisp layout bounds and the matching institutional red (`#cc0a0a`) from **Screenshot 2026-07-02 113459.png**:
 
 ```html
 <html lang="en" class="scroll-smooth">
 <head>
     <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2026/06/25/09/20260625095541-9UXJJ8UK.js" defer></script> 
+    <!-- Updated with your new Botpress configuration file -->
+    <script src="https://files.bpcontent.cloud/2026/06/25/09/20260625095541-GSKJIOUD.json" defer></script> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Masterclass for Clinicians - Portfolio & Syllabus Hub</title>
@@ -34,16 +32,16 @@ Here is the clean, optimized code update. The sections now snuggly fit their con
                     },
                     colors: {
                         clinical: {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            200: '#fecdd3',
-                            300: '#fda4af',
-                            400: '#fb7185',
-                            500: '#f43f5e',
-                            600: '#be123c', 
-                            700: '#9f1239', 
-                            800: '#881337',
-                            900: '#4c0519',
+                            50: '#fff5f5',
+                            100: '#ffe3e3',
+                            200: '#ffc9c9',
+                            300: '#ffa3a3',
+                            400: '#ff6b6b',
+                            500: '#fa5252',
+                            600: '#cc0a0a', /* Exact Chatbot Red from Screenshot 2026-07-02 113459.png */
+                            700: '#b00808', /* Deeper interactive hover state */
+                            800: '#820505',
+                            900: '#4a0202',
                         },
                         navy: {
                             50: '#f0f4f8',
