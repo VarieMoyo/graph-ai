@@ -1,15 +1,13 @@
-Awesome. I noticed that the `configUrl` in your new Botpress link points to an updated configuration JSON file: `20260625095541-GSKJIOUD.json`.
-
-To make sure your webpage initialization matches this new chatbot backend exactly, I have updated the script tag in the `<head>` to reference this latest setup.
-
-Here is your fully updated code, maintaining the crisp layout bounds and the matching institutional red (`#cc0a0a`) from **Screenshot 2026-07-02 113459.png**:
-
-```html
 <html lang="en" class="scroll-smooth">
 <head>
-    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-    <!-- Updated with your new Botpress configuration file -->
-    <script src="https://files.bpcontent.cloud/2026/06/25/09/20260625095541-GSKJIOUD.json" defer></script> 
+    <!-- Botpress Webchat Injection Scripts -->
+    <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
+    <script>
+        window.botpress.init({
+            "configUrl": "https://files.bpcontent.cloud/2026/06/25/09/20260625095541-GSKJIOUD.json"
+        });
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Masterclass for Clinicians - Portfolio & Syllabus Hub</title>
@@ -398,5 +396,3 @@ Here is your fully updated code, maintaining the crisp layout bounds and the mat
 
 </body>
 </html>
-
-```
